@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
+require('dotenv').config();
+
 
 const app = express();
 
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 mongoose.connect(
-  "mongodb+srv://muhammetlightning:159753456654@cluster0.ga6h9rd.mongodb.net/blogDB",
+  process.env.MONGODB_URL,
   {
     useNewUrlParser: true,
   }
